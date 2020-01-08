@@ -21,8 +21,8 @@ function encodeUTF8(s) {
 export function sha1(s) {
   var data = new Uint8Array(encodeUTF8(s));
   var i, j, t;
-  var l = (((data.length + 8) >>> 6) << 4) + 16,
-    s = new Uint8Array(l << 2);
+  var l = (((data.length + 8) >>> 6) << 4) + 16;
+  var s:any = new Uint8Array(l << 2);
   s.set(new Uint8Array(data.buffer)), (s = new Uint32Array(s.buffer));
   for (t = new DataView(s.buffer), i = 0; i < l; i++)
     s[i] = t.getUint32(i << 2);
@@ -65,7 +65,7 @@ export function sha1(s) {
     for (j = 0; j < 5; j++) m[j] = (m[j] + o[j]) | 0;
   }
   t = new DataView(new Uint32Array(m).buffer);
-  for (var i = 0; i < 5; i++) m[i] = t.getUint32(i << 2);
+  for (var i:any = 0; i < 5; i++) m[i] = t.getUint32(i << 2);
 
   var hex = Array.prototype.map
     .call(new Uint8Array(new Uint32Array(m).buffer), function(e) {
