@@ -24,7 +24,7 @@ export class AppController {
     const {signature,timestamp,nonce} = request
     // const res = await this.appService.getWXConfig(url);
     // return res;
-    return true
+    return request.query
   }
 
 }
