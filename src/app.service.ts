@@ -30,7 +30,7 @@ export class AppService {
     const noncestr = 'Wm3WZYTPz0wzccnW'
     const jsapi_ticket = await this.getJsapiTicket()
     const timestamp = parseInt((new Date().getTime() / 1000).toString())
-    const pageUrl = url;
+    const pageUrl = url
     const string1 = `jsapi_ticket=${jsapi_ticket}&noncestr=${noncestr}&timestamp=${timestamp}&url=${pageUrl}`
     const signature = sha1(string1);
     return{

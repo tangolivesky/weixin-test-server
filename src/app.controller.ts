@@ -12,7 +12,6 @@ export class AppController {
 
   @Post('/get-wx-config')
   async getWXConfig(@Body() body:any):Promise<object>{
-    console.log('body',body)
     const {url} = body
     const res = await this.appService.getWXConfig(url);
     return res;
