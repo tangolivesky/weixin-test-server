@@ -1,4 +1,4 @@
-import { Controller, Get,Post,Body, Query} from '@nestjs/common';
+import { Controller, Get,Post,Body, Req} from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -19,9 +19,9 @@ export class AppController {
   }
 
   @Get('check-signature')
-  async checkSignature(@Query() query:any):Promise<boolean>{
-    console.log('body',query)
-    const {signature,timestamp,nonce} = query
+  async checkSignature(@Req() request: any,):Promise<boolean>{
+    console.log('body',request)
+    const {signature,timestamp,nonce} = request
     // const res = await this.appService.getWXConfig(url);
     // return res;
     return true
