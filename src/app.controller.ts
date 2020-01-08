@@ -19,12 +19,9 @@ export class AppController {
 
   @Get('check-signature')
   async checkSignature(@Req() request: any,):Promise<boolean>{
-    console.log('body444')
     console.log('body',request.query)
-    const {signature,timestamp,nonce} = request
-    // const res = await this.appService.getWXConfig(url);
-    // return res;
-    return request.query
+    const {signature,echostr,timestamp,nonce} = request.query
+    return echostr
   }
 
 }
